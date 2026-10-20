@@ -61,21 +61,6 @@ reveals a conflict in the same batch. Different values in different rounds are
 permitted. Old messages cannot be relabelled with a new round without invalidating
 their signatures.
 
-## Evidence and report
-
-- [Part8_Hardening_Report.md](Part8_Hardening_Report.md): EN-GB implementation and evaluation report.
-- `evidence/part8-results.json`: actual demonstration results and signed evidence.
-- `evidence/part8-demo.txt`: readable transcript of the combined demonstration.
-- `evidence/unit-tests.tap`: automated test results.
-- `evidence/validation-summary.json`: test totals, runtime and command exit codes.
-- `evidence/commit-certificate.json`: certificate for value 100, signed by A, B and C.
-- `evidence/trusted-config.json`: public verification keys and expected quorum.
-- `evidence/original-quorum-baseline.txt`: execution of the preserved starter attack.
-
-Each execution creates fresh keys, so signatures change between runs. Outcomes
-and assertions remain reproducible. Update the Markdown report after changing the code
-or evidence; the supplied report records the delivered validation run.
-
 ## Trust assumptions and limits
 
 The administrator controls initial membership, public keys, rotation and
@@ -104,11 +89,3 @@ liveness. Its local round counter prevents reusing a completed round within one
 simulator instance. It is not a complete BFT protocol or a proof of distributed
 consensus under arbitrary scheduling.
 
-## Report source
-
-The report is maintained directly in `Part8_Hardening_Report.md`, using the saved
-validation evidence.
-
-The workshop requirements are in `bft_workshop_manual(1).pdf`, Part 8, pages 9-12.
-The report explains the changes, experiments and remaining assumptions for each
-of the five tasks.
