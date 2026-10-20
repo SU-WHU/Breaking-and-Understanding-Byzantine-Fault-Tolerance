@@ -1,0 +1,8 @@
+
+Round 1; proposal 100; required quorum 3
+A voted 100
+B voted 100
+C voted 100
+D voted 50
+COMMITTED: 100
+COMMIT CERTIFICATE: signed by A, B, C

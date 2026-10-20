@@ -1,0 +1,81 @@
+
+Task 8.1: Detect equivocation
+
+Round 1; proposal 100; required quorum 3
+A voted 100
+B voted 100
+C voted 100
+D voted 100
+EQUIVOCATION DETECTED: D in round 1
+EQUIVOCATION DETECTED: D in round 1
+COMMITTED: 100
+COMMIT CERTIFICATE: signed by A, B, C
+
+Task 8.2: Rotate keys and revoke a validator
+Before rotation: the stolen current key passes verification.
+
+Round 1; proposal 100; required quorum 3
+REJECTED A: Obsolete key version
+REJECTED A: Invalid signature
+A voted 100
+B voted 100
+C voted 100
+D voted 100
+COMMITTED: 100
+COMMIT CERTIFICATE: signed by A, B, C, D
+
+Round 2; proposal 100; required quorum 3
+REJECTED A: Revoked validator
+B voted 100
+C voted 100
+D voted 100
+COMMITTED: 100
+COMMIT CERTIFICATE: signed by B, C, D
+
+Task 8.3: Enforce approved membership
+
+Round 1; proposal 100; required quorum 3
+A voted 100
+B voted 100
+C voted 100
+D voted 100
+REJECTED X1: Unapproved validator
+REJECTED X2: Unapproved validator
+REJECTED X3: Unapproved validator
+REJECTED X4: Unapproved validator
+REJECTED A: Invalid signature
+COMMITTED: 100
+COMMIT CERTIFICATE: signed by A, B, C, D
+
+Task 8.4: Protect quorum rules
+Unprotected reference: both 100 and 50 have two votes and meet a quorum of 2.
+BLOCKED: Unsafe quorum size: 2; expected 3 to 4
+
+Round 1; proposal 100; required quorum 3
+A voted 100
+B voted 100
+C voted 50
+D voted 50
+NO CONSENSUS
+
+Round 1; proposal 100; required quorum 3
+A voted 100
+B voted 100
+C voted 100
+D voted 100
+COMMITTED: 100
+COMMIT CERTIFICATE: signed by A, B, C, D
+
+Task 8.5: Build and verify a commit certificate
+
+Round 1; proposal 100; required quorum 3
+A voted 100
+B voted 100
+C voted 100
+D voted 50
+COMMITTED: 100
+COMMIT CERTIFICATE: signed by A, B, C
+Certificate verified: A, B, C
+Tampered certificate rejected: Value mismatch
+
+All five Part 8 demonstrations passed. Evidence saved in evidence/.

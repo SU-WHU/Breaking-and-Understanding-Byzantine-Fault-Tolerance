@@ -1,0 +1,11 @@
+Available scenarios and checks:
+npm run honest
+npm run byzantine
+npm run equivocation
+npm run key-theft
+npm run sybil
+npm run quorum
+npm run certificates
+npm run part8
+npm run verify-certificate
+npm run test

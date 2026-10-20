@@ -10,7 +10,12 @@
     "equivocation": "node scenarios/equivocation.js",
     "key-theft": "node scenarios/key_theft.js",
     "sybil": "node scenarios/sybil.js",
-    "quorum": "node scenarios/quorum_tampering.js"
+    "quorum": "node scenarios/quorum_tampering.js",
+    "part8": "node scenarios/part8.js",
+    "certificates": "node scenarios/commit_certificate.js",
+    "verify-certificate": "node verify-certificate.js",
+    "test": "node --test test/part8.test.js",
+    "validate": "node scripts/validate.js"
   }, 
   "author": "Inah Omororonyia",
   "license": "ISC"

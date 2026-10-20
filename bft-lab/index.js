@@ -1,27 +1,4 @@
-console.log(
-    "Available scenarios:"
-);
-
-console.log(
-    "npm run honest"
-);
-
-console.log(
-    "npm run byzantine"
-);
-
-console.log(
-    "npm run equivocation"
-);
-
-console.log(
-    "npm run key-theft"
-);
-
-console.log(
-    "npm run sybil"
-);
-
-console.log(
-    "npm run quorum"
-);
+console.log("Available scenarios and checks:");
+for (const name of ["honest", "byzantine", "equivocation", "key-theft", "sybil", "quorum", "certificates", "part8", "verify-certificate", "test"]) {
+    console.log(`npm run ${name}`);
+}

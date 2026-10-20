@@ -1,0 +1,710 @@
+{
+  "generatedAt": "2026-10-20T14:20:39.027Z",
+  "nodeVersion": "v26.12.0",
+  "results": [
+    {
+      "task": "8.1",
+      "result": {
+        "roundId": 1,
+        "proposal": 100,
+        "quorum": 3,
+        "votes": [
+          {
+            "nodeId": "A",
+            "value": 100,
+            "roundId": 1,
+            "keyVersion": 1,
+            "signature": "SJ+nn6IaJx4NrPlXAAZ4TsOGlYkgFCMbTdcp1iqvtsFqTAKU+VgSKDtUTOqmhi9hjcLvjrrjWGUrCy89LM+mAg=="
+          },
+          {
+            "nodeId": "B",
+            "value": 100,
+            "roundId": 1,
+            "keyVersion": 1,
+            "signature": "mZQgRJvLtvpiL5E2ALgXWnTkAU9970iKA8WaqudtviAHRg7OD8LU93YPRk6THWdGBCXy+fJS8nZNC8O15tgLCw=="
+          },
+          {
+            "nodeId": "C",
+            "value": 100,
+            "roundId": 1,
+            "keyVersion": 1,
+            "signature": "bVFmnm9Ob8L+TdLHWaYNjlofOK+5p+MMManp1PLiHSEvKO05FsGFZo1A62DfFeXrlVbT73ul+FAIQnaD//emBQ=="
+          }
+        ],
+        "tally": [
+          {
+            "value": 100,
+            "votes": 3
+          }
+        ],
+        "winners": [
+          {
+            "value": 100,
+            "votes": 3
+          }
+        ],
+        "rejected": [
+          {
+            "nodeId": "D",
+            "reason": "Equivocation"
+          },
+          {
+            "nodeId": "D",
+            "reason": "Equivocation"
+          }
+        ],
+        "equivocations": [
+          {
+            "nodeId": "D",
+            "roundId": 1,
+            "messages": [
+              {
+                "nodeId": "D",
+                "value": 100,
+                "roundId": 1,
+                "keyVersion": 1,
+                "signature": "5y2DTuSSUM63ibKiFi+1GTWMNWSyLHL+IauAmUrTdxk/rseIMRyfU6H+KmSR4spvlPykOochzVIVn6Ca8MKfBA==",
+                "recipient": "A"
+              },
+              {
+                "nodeId": "D",
+                "value": 50,
+                "roundId": 1,
+                "keyVersion": 1,
+                "signature": "FQmUHF+gm31o8VDBgbzFJa1Qgtew950FRyP3anxqDNgeh+37iWi9ewk3HG59jKwGXvmPOaD0+RlAswrSqXRFAw==",
+                "recipient": "B"
+              }
+            ]
+          }
+        ],
+        "certificate": {
+          "protocol": "bft-lab-v1",
+          "roundId": 1,
+          "value": 100,
+          "quorum": 3,
+          "signatures": [
+            {
+              "nodeId": "A",
+              "value": 100,
+              "roundId": 1,
+              "keyVersion": 1,
+              "signature": "SJ+nn6IaJx4NrPlXAAZ4TsOGlYkgFCMbTdcp1iqvtsFqTAKU+VgSKDtUTOqmhi9hjcLvjrrjWGUrCy89LM+mAg=="
+            },
+            {
+              "nodeId": "B",
+              "value": 100,
+              "roundId": 1,
+              "keyVersion": 1,
+              "signature": "mZQgRJvLtvpiL5E2ALgXWnTkAU9970iKA8WaqudtviAHRg7OD8LU93YPRk6THWdGBCXy+fJS8nZNC8O15tgLCw=="
+            },
+            {
+              "nodeId": "C",
+              "value": 100,
+              "roundId": 1,
+              "keyVersion": 1,
+              "signature": "bVFmnm9Ob8L+TdLHWaYNjlofOK+5p+MMManp1PLiHSEvKO05FsGFZo1A62DfFeXrlVbT73ul+FAIQnaD//emBQ=="
+            }
+          ]
+        },
+        "status": "COMMITTED"
+      },
+      "trustedValidators": [
+        {
+          "id": "A",
+          "publicKey": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAcJ3vgKV5V5xtPmUFFpqHBOciDhHK7jmWn0ciElqEHM0=\n-----END PUBLIC KEY-----\n",
+          "keyVersion": 1,
+          "revoked": false
+        },
+        {
+          "id": "B",
+          "publicKey": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAFm8Sfxv/24aMMnV3KEBNRsJdj86AOmxQg083wQJ/K4A=\n-----END PUBLIC KEY-----\n",
+          "keyVersion": 1,
+          "revoked": false
+        },
+        {
+          "id": "C",
+          "publicKey": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAldrdaV6NHf0NeoVyZH8mgmqVU4723FnlON9b6s7FPXI=\n-----END PUBLIC KEY-----\n",
+          "keyVersion": 1,
+          "revoked": false
+        },
+        {
+          "id": "D",
+          "publicKey": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAERi0o7iuWBS85xOwPQ9PzoUxl8SK5O201jflMSeRZUs=\n-----END PUBLIC KEY-----\n",
+          "keyVersion": 1,
+          "revoked": false
+        }
+      ]
+    },
+    {
+      "task": "8.2",
+      "beforeRotation": {
+        "ok": true
+      },
+      "rotation": {
+        "roundId": 1,
+        "proposal": 100,
+        "quorum": 3,
+        "votes": [
+          {
+            "nodeId": "A",
+            "value": 100,
+            "roundId": 1,
+            "keyVersion": 2,
+            "signature": "MfXSSmf6riVKZaqQOrh07iDFjweBh2rg+jRjU4PiINfc/iUmRheArg3CIv324+E4nByFyo1bCQutUMXY03PeAw=="
+          },
+          {
+            "nodeId": "B",
+            "value": 100,
+            "roundId": 1,
+            "keyVersion": 1,
+            "signature": "nz9KvDQobPPoIU4tFrSa9SJssUxQ22r78GlmmjfYT1mwEgnNvJFD9FtpCyCuZIVAcIKBHFue8fw3P/IB/fRbAQ=="
+          },
+          {
+            "nodeId": "C",
+            "value": 100,
+            "roundId": 1,
+            "keyVersion": 1,
+            "signature": "GRNJzmCIOF+8ahOlWeguzPl+WovbaZkTZufQFjIFiwwJDk9IZ/aWvMJA3hKc6r/NGhKUZxLpvgZaGtTRMUL7DQ=="
+          },
+          {
+            "nodeId": "D",
+            "value": 100,
+            "roundId": 1,
+            "keyVersion": 1,
+            "signature": "jgwoArf/fWD/RvZOsGMIqU/3t2COTnvXFF+pIcV+Fq/45RuU7MUnbJMumraN4yA9UkrGT5C2CpSPkr+HF+cpDQ=="
+          }
+        ],
+        "tally": [
+          {
+            "value": 100,
+            "votes": 4
+          }
+        ],
+        "winners": [
+          {
+            "value": 100,
+            "votes": 4
+          }
+        ],
+        "rejected": [
+          {
+            "nodeId": "A",
+            "reason": "Obsolete key version"
+          },
+          {
+            "nodeId": "A",
+            "reason": "Invalid signature"
+          }
+        ],
+        "equivocations": [],
+        "certificate": {
+          "protocol": "bft-lab-v1",
+          "roundId": 1,
+          "value": 100,
+          "quorum": 3,
+          "signatures": [
+            {
+              "nodeId": "A",
+              "value": 100,
+              "roundId": 1,
+              "keyVersion": 2,
+              "signature": "MfXSSmf6riVKZaqQOrh07iDFjweBh2rg+jRjU4PiINfc/iUmRheArg3CIv324+E4nByFyo1bCQutUMXY03PeAw=="
+            },
+            {
+              "nodeId": "B",
+              "value": 100,
+              "roundId": 1,
+              "keyVersion": 1,
+              "signature": "nz9KvDQobPPoIU4tFrSa9SJssUxQ22r78GlmmjfYT1mwEgnNvJFD9FtpCyCuZIVAcIKBHFue8fw3P/IB/fRbAQ=="
+            },
+            {
+              "nodeId": "C",
+              "value": 100,
+              "roundId": 1,
+              "keyVersion": 1,
+              "signature": "GRNJzmCIOF+8ahOlWeguzPl+WovbaZkTZufQFjIFiwwJDk9IZ/aWvMJA3hKc6r/NGhKUZxLpvgZaGtTRMUL7DQ=="
+            },
+            {
+              "nodeId": "D",
+              "value": 100,
+              "roundId": 1,
+              "keyVersion": 1,
+              "signature": "jgwoArf/fWD/RvZOsGMIqU/3t2COTnvXFF+pIcV+Fq/45RuU7MUnbJMumraN4yA9UkrGT5C2CpSPkr+HF+cpDQ=="
+            }
+          ]
+        },
+        "status": "COMMITTED"
+      },
+      "revocation": {
+        "roundId": 2,
+        "proposal": 100,
+        "quorum": 3,
+        "votes": [
+          {
+            "nodeId": "B",
+            "value": 100,
+            "roundId": 2,
+            "keyVersion": 1,
+            "signature": "hBi7IeyJXTx8HB31WbDo81Hir7+aeP+EQPsEO0iv0CI1Qtx/Odg4f6dtOkZhZPV/4fpRGVp3dQlzxe5n+x7MAg=="
+          },
+          {
+            "nodeId": "C",
+            "value": 100,
+            "roundId": 2,
+            "keyVersion": 1,
+            "signature": "vYqWhObhCMajMJm1UOL5TUIwE2SsxnTTleNnQWn6GOLNoA+CMnIbz4yrHoVehe5c6OKum3ZmY2zRvsgQEA5yCg=="
+          },
+          {
+            "nodeId": "D",
+            "value": 100,
+            "roundId": 2,
+            "keyVersion": 1,
+            "signature": "KJFp6uB8s+zOrz3wwHGg2IKQvmSQN2hMng1H8PnjhQRgKRVY3XzpBOcprVvFapL8L0XoCKzxDBohY3lvtRsjDg=="
+          }
+        ],
+        "tally": [
+          {
+            "value": 100,
+            "votes": 3
+          }
+        ],
+        "winners": [
+          {
+            "value": 100,
+            "votes": 3
+          }
+        ],
+        "rejected": [
+          {
+            "nodeId": "A",
+            "reason": "Revoked validator"
+          }
+        ],
+        "equivocations": [],
+        "certificate": {
+          "protocol": "bft-lab-v1",
+          "roundId": 2,
+          "value": 100,
+          "quorum": 3,
+          "signatures": [
+            {
+              "nodeId": "B",
+              "value": 100,
+              "roundId": 2,
+              "keyVersion": 1,
+              "signature": "hBi7IeyJXTx8HB31WbDo81Hir7+aeP+EQPsEO0iv0CI1Qtx/Odg4f6dtOkZhZPV/4fpRGVp3dQlzxe5n+x7MAg=="
+            },
+            {
+              "nodeId": "C",
+              "value": 100,
+              "roundId": 2,
+              "keyVersion": 1,
+              "signature": "vYqWhObhCMajMJm1UOL5TUIwE2SsxnTTleNnQWn6GOLNoA+CMnIbz4yrHoVehe5c6OKum3ZmY2zRvsgQEA5yCg=="
+            },
+            {
+              "nodeId": "D",
+              "value": 100,
+              "roundId": 2,
+              "keyVersion": 1,
+              "signature": "KJFp6uB8s+zOrz3wwHGg2IKQvmSQN2hMng1H8PnjhQRgKRVY3XzpBOcprVvFapL8L0XoCKzxDBohY3lvtRsjDg=="
+            }
+          ]
+        },
+        "status": "COMMITTED"
+      }
+    },
+    {
+      "task": "8.3",
+      "approved": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "result": {
+        "roundId": 1,
+        "proposal": 100,
+        "quorum": 3,
+        "votes": [
+          {
+            "nodeId": "A",
+            "value": 100,
+            "roundId": 1,
+            "keyVersion": 1,
+            "signature": "3XekxTUHZRWMoE1Siiq0sqn10quZCy9Cqp4MP+ZjeAxsNTgSFWDZbX9xsC2prIFQms9FRDCtkau2yjbNl17bAA=="
+          },
+          {
+            "nodeId": "B",
+            "value": 100,
+            "roundId": 1,
+            "keyVersion": 1,
+            "signature": "s8Fz2rA2n9BH8uPqlKXOmFsCCszSUCICnVFvPDzMMmxM5df6mLtGRu+8mmwvPTjlSgaLK1PWkMMUkC3TvxO4Cw=="
+          },
+          {
+            "nodeId": "C",
+            "value": 100,
+            "roundId": 1,
+            "keyVersion": 1,
+            "signature": "DrpmIIaZfxYVUa5NDAjrlu9Yj+ZFvVyrYh2qQ6xEW9yWc9xxwy+Mturwi6gk/7UABXJQuE6PMzdSFgUHDDqOCQ=="
+          },
+          {
+            "nodeId": "D",
+            "value": 100,
+            "roundId": 1,
+            "keyVersion": 1,
+            "signature": "0oGevWIWg/BXDHlfucUIowuh315N31z5Yb3rcyqhjP2qGeLLCm1z5yna4expvnUSjVVIOfeUYu8PN1r3Iu7hAA=="
+          }
+        ],
+        "tally": [
+          {
+            "value": 100,
+            "votes": 4
+          }
+        ],
+        "winners": [
+          {
+            "value": 100,
+            "votes": 4
+          }
+        ],
+        "rejected": [
+          {
+            "nodeId": "X1",
+            "reason": "Unapproved validator"
+          },
+          {
+            "nodeId": "X2",
+            "reason": "Unapproved validator"
+          },
+          {
+            "nodeId": "X3",
+            "reason": "Unapproved validator"
+          },
+          {
+            "nodeId": "X4",
+            "reason": "Unapproved validator"
+          },
+          {
+            "nodeId": "A",
+            "reason": "Invalid signature"
+          }
+        ],
+        "equivocations": [],
+        "certificate": {
+          "protocol": "bft-lab-v1",
+          "roundId": 1,
+          "value": 100,
+          "quorum": 3,
+          "signatures": [
+            {
+              "nodeId": "A",
+              "value": 100,
+              "roundId": 1,
+              "keyVersion": 1,
+              "signature": "3XekxTUHZRWMoE1Siiq0sqn10quZCy9Cqp4MP+ZjeAxsNTgSFWDZbX9xsC2prIFQms9FRDCtkau2yjbNl17bAA=="
+            },
+            {
+              "nodeId": "B",
+              "value": 100,
+              "roundId": 1,
+              "keyVersion": 1,
+              "signature": "s8Fz2rA2n9BH8uPqlKXOmFsCCszSUCICnVFvPDzMMmxM5df6mLtGRu+8mmwvPTjlSgaLK1PWkMMUkC3TvxO4Cw=="
+            },
+            {
+              "nodeId": "C",
+              "value": 100,
+              "roundId": 1,
+              "keyVersion": 1,
+              "signature": "DrpmIIaZfxYVUa5NDAjrlu9Yj+ZFvVyrYh2qQ6xEW9yWc9xxwy+Mturwi6gk/7UABXJQuE6PMzdSFgUHDDqOCQ=="
+            },
+            {
+              "nodeId": "D",
+              "value": 100,
+              "roundId": 1,
+              "keyVersion": 1,
+              "signature": "0oGevWIWg/BXDHlfucUIowuh315N31z5Yb3rcyqhjP2qGeLLCm1z5yna4expvnUSjVVIOfeUYu8PN1r3Iu7hAA=="
+            }
+          ]
+        },
+        "status": "COMMITTED"
+      }
+    },
+    {
+      "task": "8.4",
+      "reference": {
+        "quorum": 2,
+        "tally": [
+          {
+            "value": 100,
+            "votes": 2
+          },
+          {
+            "value": 50,
+            "votes": 2
+          }
+        ]
+      },
+      "blocked": "Unsafe quorum size: 2; expected 3 to 4",
+      "split": {
+        "roundId": 1,
+        "proposal": 100,
+        "quorum": 3,
+        "votes": [
+          {
+            "nodeId": "A",
+            "value": 100,
+            "roundId": 1,
+            "keyVersion": 1,
+            "signature": "JQE0YWXOlwPQLCXYcMR6pabzVT+WjQ/+x8gQtIF8/6o6PF7mgCkTnMpaOg2uOfIjdlYcSx3LNClCbYRnaYapCg=="
+          },
+          {
+            "nodeId": "B",
+            "value": 100,
+            "roundId": 1,
+            "keyVersion": 1,
+            "signature": "XQL2FF4KWTgcPprXXEvfrvV3j2QWvqXGxMfqzwNDQDuVElLJc7kohSNPZyhd3ySRSZwtNFVYCph4gC1xmKRlCg=="
+          },
+          {
+            "nodeId": "C",
+            "value": 50,
+            "roundId": 1,
+            "keyVersion": 1,
+            "signature": "59H2YZTTFb13noK6m30nq0VbK+wz5x6cyhAMZB2hxPHRxloFR1nmWDFJo4p/9rjAArCxXZo31bOmRsshrN17AQ=="
+          },
+          {
+            "nodeId": "D",
+            "value": 50,
+            "roundId": 1,
+            "keyVersion": 1,
+            "signature": "Gz4t/36z7VSkm0clGBFSCNUqY+ew47p+0O1gB34Lf/+uuoIjKR3SFi/GbFTRKtI4QnaqBUUzQL4weRkojAoCAQ=="
+          }
+        ],
+        "tally": [
+          {
+            "value": 100,
+            "votes": 2
+          },
+          {
+            "value": 50,
+            "votes": 2
+          }
+        ],
+        "winners": [],
+        "rejected": [],
+        "equivocations": [],
+        "certificate": null,
+        "status": "NO CONSENSUS"
+      },
+      "honest": {
+        "roundId": 1,
+        "proposal": 100,
+        "quorum": 3,
+        "votes": [
+          {
+            "nodeId": "A",
+            "value": 100,
+            "roundId": 1,
+            "keyVersion": 1,
+            "signature": "Osv98OCpOK6Yuw1UzxrpMKcBF/jcgA4+/HqNbqc/uerMiHT1+yun8VuXo8eSCND4zXzQH2XAEFTtaLTJaBfwAQ=="
+          },
+          {
+            "nodeId": "B",
+            "value": 100,
+            "roundId": 1,
+            "keyVersion": 1,
+            "signature": "q/sq1HR8O/kgKKOGinx1A0wfdoI1fseuJibToUOjf1ES3PSnXw7phVh1oBXkVLrdO7wrWhN/mTyfXqvIkQiCDw=="
+          },
+          {
+            "nodeId": "C",
+            "value": 100,
+            "roundId": 1,
+            "keyVersion": 1,
+            "signature": "Hak1d6lcPLiIO+5q70DtLYalwPuD1/KScQGVu49+QnMle3wYE/NtniH1znOFusMCijCI5EqjNToXKJghmH96CA=="
+          },
+          {
+            "nodeId": "D",
+            "value": 100,
+            "roundId": 1,
+            "keyVersion": 1,
+            "signature": "Ck3o65GI+D+3l6tJY+AfGxZjmpBmyjAosyeHnR7NszebTzdClG7M6+gIt+tZodbIk1uINwhvD/Xt3L3jQ37cCQ=="
+          }
+        ],
+        "tally": [
+          {
+            "value": 100,
+            "votes": 4
+          }
+        ],
+        "winners": [
+          {
+            "value": 100,
+            "votes": 4
+          }
+        ],
+        "rejected": [],
+        "equivocations": [],
+        "certificate": {
+          "protocol": "bft-lab-v1",
+          "roundId": 1,
+          "value": 100,
+          "quorum": 3,
+          "signatures": [
+            {
+              "nodeId": "A",
+              "value": 100,
+              "roundId": 1,
+              "keyVersion": 1,
+              "signature": "Osv98OCpOK6Yuw1UzxrpMKcBF/jcgA4+/HqNbqc/uerMiHT1+yun8VuXo8eSCND4zXzQH2XAEFTtaLTJaBfwAQ=="
+            },
+            {
+              "nodeId": "B",
+              "value": 100,
+              "roundId": 1,
+              "keyVersion": 1,
+              "signature": "q/sq1HR8O/kgKKOGinx1A0wfdoI1fseuJibToUOjf1ES3PSnXw7phVh1oBXkVLrdO7wrWhN/mTyfXqvIkQiCDw=="
+            },
+            {
+              "nodeId": "C",
+              "value": 100,
+              "roundId": 1,
+              "keyVersion": 1,
+              "signature": "Hak1d6lcPLiIO+5q70DtLYalwPuD1/KScQGVu49+QnMle3wYE/NtniH1znOFusMCijCI5EqjNToXKJghmH96CA=="
+            },
+            {
+              "nodeId": "D",
+              "value": 100,
+              "roundId": 1,
+              "keyVersion": 1,
+              "signature": "Ck3o65GI+D+3l6tJY+AfGxZjmpBmyjAosyeHnR7NszebTzdClG7M6+gIt+tZodbIk1uINwhvD/Xt3L3jQ37cCQ=="
+            }
+          ]
+        },
+        "status": "COMMITTED"
+      }
+    },
+    {
+      "task": "8.5",
+      "result": {
+        "roundId": 1,
+        "proposal": 100,
+        "quorum": 3,
+        "votes": [
+          {
+            "nodeId": "A",
+            "value": 100,
+            "roundId": 1,
+            "keyVersion": 1,
+            "signature": "0IJd7AqzZr/lEOEtfNSrkWRLVHcWwnC3pP+QPOWTLwM+GFrfym8AfOH8dvzdfY1A7BAN3RzaCLz8EHKcdyY8DQ=="
+          },
+          {
+            "nodeId": "B",
+            "value": 100,
+            "roundId": 1,
+            "keyVersion": 1,
+            "signature": "w71Z73vnahHcq84S0DcNZoSssrOzrOn/ALPRtp8lLuxh6toy2FfKNR03GO3h3Pph6Ziy4JkKT3UdayztQSCQBA=="
+          },
+          {
+            "nodeId": "C",
+            "value": 100,
+            "roundId": 1,
+            "keyVersion": 1,
+            "signature": "E+jOUo58hcBR9dkDQjJYPg1DI2/g3A2Ho2Oc0Fzo96+m0ycruEhPC1+61J1Qx+gaeLlEeqGdOS4ppuquf4plDQ=="
+          },
+          {
+            "nodeId": "D",
+            "value": 50,
+            "roundId": 1,
+            "keyVersion": 1,
+            "signature": "3acivx88uUTPuQ2nZDGd6TxHnGQFbVlC1NXj+meMPsJLCQz+4bd5W9axAiLWo7j0FpCeA3GZhncIdQelxu2XCg=="
+          }
+        ],
+        "tally": [
+          {
+            "value": 100,
+            "votes": 3
+          },
+          {
+            "value": 50,
+            "votes": 1
+          }
+        ],
+        "winners": [
+          {
+            "value": 100,
+            "votes": 3
+          }
+        ],
+        "rejected": [],
+        "equivocations": [],
+        "certificate": {
+          "protocol": "bft-lab-v1",
+          "roundId": 1,
+          "value": 100,
+          "quorum": 3,
+          "signatures": [
+            {
+              "nodeId": "A",
+              "value": 100,
+              "roundId": 1,
+              "keyVersion": 1,
+              "signature": "0IJd7AqzZr/lEOEtfNSrkWRLVHcWwnC3pP+QPOWTLwM+GFrfym8AfOH8dvzdfY1A7BAN3RzaCLz8EHKcdyY8DQ=="
+            },
+            {
+              "nodeId": "B",
+              "value": 100,
+              "roundId": 1,
+              "keyVersion": 1,
+              "signature": "w71Z73vnahHcq84S0DcNZoSssrOzrOn/ALPRtp8lLuxh6toy2FfKNR03GO3h3Pph6Ziy4JkKT3UdayztQSCQBA=="
+            },
+            {
+              "nodeId": "C",
+              "value": 100,
+              "roundId": 1,
+              "keyVersion": 1,
+              "signature": "E+jOUo58hcBR9dkDQjJYPg1DI2/g3A2Ho2Oc0Fzo96+m0ycruEhPC1+61J1Qx+gaeLlEeqGdOS4ppuquf4plDQ=="
+            }
+          ]
+        },
+        "status": "COMMITTED"
+      },
+      "verification": {
+        "valid": true,
+        "signers": [
+          "A",
+          "B",
+          "C"
+        ]
+      },
+      "tamperCheck": {
+        "valid": false,
+        "reason": "Value mismatch"
+      },
+      "trustedValidators": [
+        {
+          "id": "A",
+          "publicKey": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAMF9OU8NB8zO0cRJZ6CS07GK4jW4Odpf4BUtS4IxTPWg=\n-----END PUBLIC KEY-----\n",
+          "keyVersion": 1,
+          "revoked": false
+        },
+        {
+          "id": "B",
+          "publicKey": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEA6vp+NAPDddMS4DC9hfIYUbSMpbBcNnLo07jmFnswmnU=\n-----END PUBLIC KEY-----\n",
+          "keyVersion": 1,
+          "revoked": false
+        },
+        {
+          "id": "C",
+          "publicKey": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAGDrQVtYUBzL3urrIPQTZ1MApkH//S4ZLC2vjDd1snr0=\n-----END PUBLIC KEY-----\n",
+          "keyVersion": 1,
+          "revoked": false
+        },
+        {
+          "id": "D",
+          "publicKey": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEA3593oZ39iAfHzwhpAUtaXoHTJcvMw2KZFunlDBWSenM=\n-----END PUBLIC KEY-----\n",
+          "keyVersion": 1,
+          "revoked": false
+        }
+      ]
+    }
+  ]
+}

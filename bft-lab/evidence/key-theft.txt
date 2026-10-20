@@ -1,0 +1,21 @@
+
+Task 8.2: Rotate keys and revoke a validator
+Before rotation: the stolen current key passes verification.
+
+Round 1; proposal 100; required quorum 3
+REJECTED A: Obsolete key version
+REJECTED A: Invalid signature
+A voted 100
+B voted 100
+C voted 100
+D voted 100
+COMMITTED: 100
+COMMIT CERTIFICATE: signed by A, B, C, D
+
+Round 2; proposal 100; required quorum 3
+REJECTED A: Revoked validator
+B voted 100
+C voted 100
+D voted 100
+COMMITTED: 100
+COMMIT CERTIFICATE: signed by B, C, D

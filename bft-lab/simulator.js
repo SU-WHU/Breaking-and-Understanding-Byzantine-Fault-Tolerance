@@ -1,140 +1,104 @@
 const Network = require("./network");
 const QuorumEngine = require("./quorum");
+const { validateQuorum } = require("./quorum");
+const ValidatorRegistry = require("./registry");
+const EvidenceLog = require("./evidence");
+const { buildCertificate, verifyCertificate } = require("./certificate");
 
 class Simulator {
-
-    constructor(
-        nodes,
-        customQuorumEngine = null
-    ) {
-
+    constructor(nodes, customQuorumEngine = null, options = {}) {
         this.nodes = nodes;
-
-        this.network =
-            new Network();
-
-        this.quorum =
-            customQuorumEngine ||
-            new QuorumEngine(
-                nodes.length
-            );
+        this.network = new Network();
+        // Initial membership is trusted configuration. Supply an independent
+        // registry when the participant list may include attackers.
+        this.registry = options.registry || new ValidatorRegistry(nodes);
+        this.quorum = customQuorumEngine || new QuorumEngine(this.registry.size);
+        this.evidence = new EvidenceLog();
+        this.auditLog = [];
+        this.certificates = [];
+        this.lastRound = 0;
+        this.quiet = options.quiet || false;
     }
 
-    runConsensus(value) {
+    log(...args) {
+        if (!this.quiet) console.log(...args);
+    }
 
-        console.log(
-            "\n===================="
-        );
+    validatedQuorum() {
+        return validateQuorum(this.registry.size, this.quorum.size());
+    }
 
-        console.log(
-            `Proposal: ${value}`
-        );
+    runConsensus(value, roundId = this.lastRound + 1) {
+        this.validatedQuorum();
+        const deliveries = this.nodes.map(node => ({
+            vote: node.vote(value, roundId), recipient: "consensus"
+        }));
+        return this.runVotes(value, deliveries, roundId);
+    }
 
-        console.log(
-            "===================="
-        );
-
-        const votes = [];
-
-        /*
-         * Request votes from all nodes
-         */
-        for (const node of this.nodes) {
-
-            const vote =
-                node.vote(value);
-
-            votes.push(vote);
-
-            console.log(
-                `${node.id} voted ${vote.value}`
-            );
+    runVotes(proposal, deliveries, roundId = this.lastRound + 1) {
+        if (!Number.isSafeInteger(roundId) || roundId <= this.lastRound) {
+            throw new Error("Round must be a positive, strictly increasing integer");
         }
+        const quorum = this.validatedQuorum();
+        this.lastRound = roundId;
+        const accepted = new Map();
+        const rejected = [];
+        const conflictStart = this.evidence.conflicts.length;
+        this.log(`\nRound ${roundId}; proposal ${proposal}; required quorum ${quorum}`);
 
-        /*
-         * Count votes
-         */
-        const tally = {};
-
-        for (const vote of votes) {
-
-            tally[vote.value] =
-                (tally[vote.value] || 0) + 1;
-        }
-
-        console.log("\nVote Tally");
-
-        console.table(tally);
-
-        console.log(
-            `Required Quorum = ${this.quorum.size()}`
-        );
-
-        /*
-         * Find all values that
-         * satisfy quorum.
-         */
-        const winners = [];
-
-        for (const candidate in tally) {
-
-            const voteCount =
-                tally[candidate];
-
-            if (
-                this.quorum.reached(
-                    voteCount
-                )
-            ) {
-                winners.push({
-                    value: candidate,
-                    votes: voteCount
-                });
+        // Process the complete supplied batch before making a decision.
+        for (const delivery of deliveries) {
+            const vote = delivery && delivery.vote;
+            const recipient = delivery && delivery.recipient;
+            const check = this.registry.checkVote(vote, roundId);
+            if (!check.ok) {
+                rejected.push({ nodeId: vote && vote.nodeId, reason: check.reason });
+                this.log(`REJECTED ${vote && vote.nodeId}: ${check.reason}`);
+                continue;
+            }
+            const state = this.evidence.observe(vote, recipient);
+            if (state === "equivocation") {
+                accepted.delete(vote.nodeId);
+                rejected.push({ nodeId: vote.nodeId, reason: "Equivocation" });
+                this.log(`EQUIVOCATION DETECTED: ${vote.nodeId} in round ${roundId}`);
+            } else if (state === "duplicate") {
+                rejected.push({ nodeId: vote.nodeId, reason: "Duplicate vote" });
+                this.log(`REJECTED ${vote.nodeId}: Duplicate vote`);
+            } else {
+                accepted.set(vote.nodeId, { ...vote });
+                this.log(`${vote.nodeId} voted ${vote.value}`);
             }
         }
 
-        /*
-         * Decision
-         */
-        if (
-            winners.length === 0
-        ) {
-
-            console.log(
-                "\nNO CONSENSUS"
-            );
-
+        const groups = new Map();
+        for (const vote of accepted.values()) {
+            if (!groups.has(vote.value)) groups.set(vote.value, []);
+            groups.get(vote.value).push(vote);
         }
-        else if (
-            winners.length === 1
-        ) {
-
-            console.log(
-                `\nCOMMITTED: ${winners[0].value}`
-            );
-
+        const tally = [...groups].map(([value, votes]) => ({ value, votes: votes.length }));
+        // A custom reached() method cannot bypass the checked threshold.
+        const winners = tally.filter(candidate => candidate.votes >= quorum);
+        if (winners.length > 1) throw new Error("Conflicting quorum invariant");
+        let certificate = null;
+        if (winners.length === 1) {
+            const value = winners[0].value;
+            certificate = buildCertificate(roundId, value, groups.get(value), quorum);
+            const verified = verifyCertificate(certificate, this.registry, quorum);
+            if (!verified.valid) throw new Error(verified.reason);
+            this.certificates.push(structuredClone(certificate));
+            this.log(`COMMITTED: ${value}`);
+            this.log(`COMMIT CERTIFICATE: signed by ${verified.signers.join(", ")}`);
+        } else {
+            this.log("NO CONSENSUS");
         }
-        else {
-
-            console.log(
-                "\nSAFETY VIOLATION!"
-            );
-
-            console.log(
-                "Multiple values reached quorum:"
-            );
-
-            console.table(winners);
-        }
-
-        return {
-
-            proposal: value,
-            votes,
-            tally,
-            winners
-
+        const result = {
+            roundId, proposal, quorum, votes: [...accepted.values()], tally, winners,
+            rejected, equivocations: this.evidence.conflicts.slice(conflictStart),
+            certificate, status: certificate ? "COMMITTED" : "NO CONSENSUS"
         };
+        this.auditLog.push(structuredClone(result));
+        return result;
     }
 }
 

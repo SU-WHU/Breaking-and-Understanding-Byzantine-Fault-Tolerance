@@ -1,0 +1,15 @@
+
+Task 8.3: Enforce approved membership
+
+Round 1; proposal 100; required quorum 3
+A voted 100
+B voted 100
+C voted 100
+D voted 100
+REJECTED X1: Unapproved validator
+REJECTED X2: Unapproved validator
+REJECTED X3: Unapproved validator
+REJECTED X4: Unapproved validator
+REJECTED A: Invalid signature
+COMMITTED: 100
+COMMIT CERTIFICATE: signed by A, B, C, D

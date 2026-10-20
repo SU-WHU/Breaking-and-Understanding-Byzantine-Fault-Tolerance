@@ -1,0 +1,64 @@
+{
+  "generatedAt": "2026-10-20T14:20:40.052Z",
+  "nodeVersion": "v26.12.0",
+  "tests": 42,
+  "passed": 42,
+  "failed": 0,
+  "runs": [
+    {
+      "command": "node --test --test-reporter=tap test/part8.test.js",
+      "exitCode": 0,
+      "evidence": "unit-tests.tap"
+    },
+    {
+      "command": "node scenarios/part8.js",
+      "exitCode": 0,
+      "evidence": "part8-demo.txt"
+    },
+    {
+      "command": "node verify-certificate.js",
+      "exitCode": 0,
+      "evidence": "certificate-verification.txt"
+    },
+    {
+      "command": "node scenarios/honest.js",
+      "exitCode": 0,
+      "evidence": "honest.txt"
+    },
+    {
+      "command": "node scenarios/byzantine.js",
+      "exitCode": 0,
+      "evidence": "byzantine.txt"
+    },
+    {
+      "command": "node scenarios/equivocation.js",
+      "exitCode": 0,
+      "evidence": "equivocation.txt"
+    },
+    {
+      "command": "node scenarios/key_theft.js",
+      "exitCode": 0,
+      "evidence": "key-theft.txt"
+    },
+    {
+      "command": "node scenarios/sybil.js",
+      "exitCode": 0,
+      "evidence": "sybil.txt"
+    },
+    {
+      "command": "node scenarios/quorum_tampering.js",
+      "exitCode": 0,
+      "evidence": "quorum.txt"
+    },
+    {
+      "command": "node scenarios/commit_certificate.js",
+      "exitCode": 0,
+      "evidence": "certificates.txt"
+    },
+    {
+      "command": "node index.js",
+      "exitCode": 0,
+      "evidence": "available-commands.txt"
+    }
+  ]
+}

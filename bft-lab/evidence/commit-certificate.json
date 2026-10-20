@@ -1,0 +1,29 @@
+{
+  "protocol": "bft-lab-v1",
+  "roundId": 1,
+  "value": 100,
+  "quorum": 3,
+  "signatures": [
+    {
+      "nodeId": "A",
+      "value": 100,
+      "roundId": 1,
+      "keyVersion": 1,
+      "signature": "0IJd7AqzZr/lEOEtfNSrkWRLVHcWwnC3pP+QPOWTLwM+GFrfym8AfOH8dvzdfY1A7BAN3RzaCLz8EHKcdyY8DQ=="
+    },
+    {
+      "nodeId": "B",
+      "value": 100,
+      "roundId": 1,
+      "keyVersion": 1,
+      "signature": "w71Z73vnahHcq84S0DcNZoSssrOzrOn/ALPRtp8lLuxh6toy2FfKNR03GO3h3Pph6Ziy4JkKT3UdayztQSCQBA=="
+    },
+    {
+      "nodeId": "C",
+      "value": 100,
+      "roundId": 1,
+      "keyVersion": 1,
+      "signature": "E+jOUo58hcBR9dkDQjJYPg1DI2/g3A2Ho2Oc0Fzo96+m0ycruEhPC1+61J1Qx+gaeLlEeqGdOS4ppuquf4plDQ=="
+    }
+  ]
+}

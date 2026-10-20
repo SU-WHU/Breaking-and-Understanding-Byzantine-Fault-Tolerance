@@ -1,0 +1,262 @@
+TAP version 13
+# Subtest: Honest validators commit a verifiable certificate
+ok 1 - Honest validators commit a verifiable certificate
+  ---
+  duration_ms: 14.9174
+  type: 'test'
+  ...
+# Subtest: Three honest votes tolerate one conflicting Byzantine vote
+ok 2 - Three honest votes tolerate one conflicting Byzantine vote
+  ---
+  duration_ms: 3.2406
+  type: 'test'
+  ...
+# Subtest: 8.1: conflicting signed evidence removes an earlier accepted vote
+ok 3 - 8.1: conflicting signed evidence removes an earlier accepted vote
+  ---
+  duration_ms: 2.8733
+  type: 'test'
+  ...
+# Subtest: 8.1: equivocation cannot supply a third vote to two honest validators
+ok 4 - 8.1: equivocation cannot supply a third vote to two honest validators
+  ---
+  duration_ms: 1.344
+  type: 'test'
+  ...
+# Subtest: 8.1: the same value sent to several recipients counts once
+ok 5 - 8.1: the same value sent to several recipients counts once
+  ---
+  duration_ms: 1.2151
+  type: 'test'
+  ...
+# Subtest: 8.1: different values in different rounds are not equivocation
+ok 6 - 8.1: different values in different rounds are not equivocation
+  ---
+  duration_ms: 3.0768
+  type: 'test'
+  ...
+# Subtest: 8.1: an invalid conflicting signature cannot frame a validator
+ok 7 - 8.1: an invalid conflicting signature cannot frame a validator
+  ---
+  duration_ms: 1.9739
+  type: 'test'
+  ...
+# Subtest: 8.2: a stolen current key verifies before rotation
+ok 8 - 8.2: a stolen current key verifies before rotation
+  ---
+  duration_ms: 1.4723
+  type: 'test'
+  ...
+# Subtest: 8.2: rotation rejects both obsolete and relabelled stolen-key votes
+ok 9 - 8.2: rotation rejects both obsolete and relabelled stolen-key votes
+  ---
+  duration_ms: 3.2578
+  type: 'test'
+  ...
+# Subtest: 8.2: rotating a node requires an explicit trusted registry update
+ok 10 - 8.2: rotating a node requires an explicit trusted registry update
+  ---
+  duration_ms: 1.0271
+  type: 'test'
+  ...
+# Subtest: 8.2: key versions cannot be rolled back
+ok 11 - 8.2: key versions cannot be rolled back
+  ---
+  duration_ms: 0.8677
+  type: 'test'
+  ...
+# Subtest: 8.2: revoked validators cannot vote or silently re-register
+ok 12 - 8.2: revoked validators cannot vote or silently re-register
+  ---
+  duration_ms: 1.6179
+  type: 'test'
+  ...
+# Subtest: 8.2: two revocations stop progress without lowering quorum
+ok 13 - 8.2: two revocations stop progress without lowering quorum
+  ---
+  duration_ms: 0.9834
+  type: 'test'
+  ...
+# Subtest: 8.3: four attacker identities gain no voting power
+ok 14 - 8.3: four attacker identities gain no voting power
+  ---
+  duration_ms: 2.266
+  type: 'test'
+  ...
+# Subtest: 8.3: copying an approved name without its key fails authentication
+ok 15 - 8.3: copying an approved name without its key fails authentication
+  ---
+  duration_ms: 1.7636
+  type: 'test'
+  ...
+# Subtest: 8.3: duplicate registrations are rejected
+ok 16 - 8.3: duplicate registrations are rejected
+  ---
+  duration_ms: 0.2363
+  type: 'test'
+  ...
+# Subtest: 8.3: repeated authenticated votes cannot manufacture a quorum
+ok 17 - 8.3: repeated authenticated votes cannot manufacture a quorum
+  ---
+  duration_ms: 2.4516
+  type: 'test'
+  ...
+# Subtest: 8.4: reject unsafe or invalid quorum 0
+ok 18 - 8.4: reject unsafe or invalid quorum 0
+  ---
+  duration_ms: 0.4253
+  type: 'test'
+  ...
+# Subtest: 8.4: reject unsafe or invalid quorum 2
+ok 19 - 8.4: reject unsafe or invalid quorum 2
+  ---
+  duration_ms: 0.3568
+  type: 'test'
+  ...
+# Subtest: 8.4: reject unsafe or invalid quorum 2.5
+ok 20 - 8.4: reject unsafe or invalid quorum 2.5
+  ---
+  duration_ms: 0.3493
+  type: 'test'
+  ...
+# Subtest: 8.4: reject unsafe or invalid quorum NaN
+ok 21 - 8.4: reject unsafe or invalid quorum NaN
+  ---
+  duration_ms: 0.339
+  type: 'test'
+  ...
+# Subtest: 8.4: reject unsafe or invalid quorum Infinity
+ok 22 - 8.4: reject unsafe or invalid quorum Infinity
+  ---
+  duration_ms: 0.3511
+  type: 'test'
+  ...
+# Subtest: 8.4: reject unsafe or invalid quorum 5
+ok 23 - 8.4: reject unsafe or invalid quorum 5
+  ---
+  duration_ms: 0.3565
+  type: 'test'
+  ...
+# Subtest: 8.4: correct thresholds for four and seven approved validators
+ok 24 - 8.4: correct thresholds for four and seven approved validators
+  ---
+  duration_ms: 0.0485
+  type: 'test'
+  ...
+# Subtest: 8.4: a split vote cannot commit under a valid quorum
+ok 25 - 8.4: a split vote cannot commit under a valid quorum
+  ---
+  duration_ms: 1.1328
+  type: 'test'
+  ...
+# Subtest: 8.4: a dishonest reached() implementation cannot bypass the threshold
+ok 26 - 8.4: a dishonest reached() implementation cannot bypass the threshold
+  ---
+  duration_ms: 0.8316
+  type: 'test'
+  ...
+# Subtest: 8.4: quorum changes are rechecked before every round
+ok 27 - 8.4: quorum changes are rechecked before every round
+  ---
+  duration_ms: 1.6171
+  type: 'test'
+  ...
+# Subtest: 8.5: reject a certificate with altered value
+ok 28 - 8.5: reject a certificate with altered value
+  ---
+  duration_ms: 1.8411
+  type: 'test'
+  ...
+# Subtest: 8.5: reject a certificate with altered round
+ok 29 - 8.5: reject a certificate with altered round
+  ---
+  duration_ms: 1.6634
+  type: 'test'
+  ...
+# Subtest: 8.5: reject a certificate with altered signature
+ok 30 - 8.5: reject a certificate with altered signature
+  ---
+  duration_ms: 1.5868
+  type: 'test'
+  ...
+# Subtest: 8.5: reject a certificate with duplicate signers
+ok 31 - 8.5: reject a certificate with duplicate signers
+  ---
+  duration_ms: 2.0244
+  type: 'test'
+  ...
+# Subtest: 8.5: reject a certificate with insufficient signatures
+ok 32 - 8.5: reject a certificate with insufficient signatures
+  ---
+  duration_ms: 1.829
+  type: 'test'
+  ...
+# Subtest: 8.5: reject a certificate with weakened quorum metadata
+ok 33 - 8.5: reject a certificate with weakened quorum metadata
+  ---
+  duration_ms: 2.4248
+  type: 'test'
+  ...
+# Subtest: 8.5: reject a certificate with unapproved signer
+ok 34 - 8.5: reject a certificate with unapproved signer
+  ---
+  duration_ms: 1.6546
+  type: 'test'
+  ...
+# Subtest: 8.5: certificate signatures contain only votes for the committed value
+ok 35 - 8.5: certificate signatures contain only votes for the committed value
+  ---
+  duration_ms: 1.4847
+  type: 'test'
+  ...
+# Subtest: 8.5: certificate must satisfy the verifier's stricter quorum policy
+ok 36 - 8.5: certificate must satisfy the verifier's stricter quorum policy
+  ---
+  duration_ms: 1.5774
+  type: 'test'
+  ...
+# Subtest: 8.5: exported public configuration independently verifies saved evidence
+ok 37 - 8.5: exported public configuration independently verifies saved evidence
+  ---
+  duration_ms: 2.1301
+  type: 'test'
+  ...
+# Subtest: 8.5: modifying returned evidence does not rewrite the stored audit record
+ok 38 - 8.5: modifying returned evidence does not rewrite the stored audit record
+  ---
+  duration_ms: 1.5496
+  type: 'test'
+  ...
+# Subtest: Rounds reject old messages and signed-field tampering
+ok 39 - Rounds reject old messages and signed-field tampering
+  ---
+  duration_ms: 3.5286
+  type: 'test'
+  ...
+# Subtest: A completed round cannot be reused for a conflicting local commit
+ok 40 - A completed round cannot be reused for a conflicting local commit
+  ---
+  duration_ms: 2.3989
+  type: 'test'
+  ...
+# Subtest: Malformed and unsigned votes are rejected without stopping honest votes
+ok 41 - Malformed and unsigned votes are rejected without stopping honest votes
+  ---
+  duration_ms: 1.7917
+  type: 'test'
+  ...
+# Subtest: Numeric and textual values remain distinct during tallying
+ok 42 - Numeric and textual values remain distinct during tallying
+  ---
+  duration_ms: 1.4402
+  type: 'test'
+  ...
+1..42
+# tests 42
+# suites 0
+# pass 42
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 198.0991

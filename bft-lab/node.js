@@ -1,39 +1,36 @@
-const { sign, verify } = require("./crypto");
+const { generateKeys, signVote, verifyVote } = require("./crypto");
 
 class Node {
-
-    constructor(id, honest=true) {
+    constructor(id, honest = true) {
         this.id = id;
         this.honest = honest;
-
-        this.secret = `secret-${id}`;
-
-        this.publicInfo = {
-            id: this.id
-        };
+        this.keyVersion = 0;
+        this.rotateKey();
     }
 
-    vote(value) {
+    rotateKey() {
+        const { privateKey, publicKey } = generateKeys();
+        this.secret = privateKey;
+        this.publicKey = publicKey;
+        this.keyVersion += 1;
+        return this.publicInfo;
+    }
 
+    get publicInfo() {
         return {
-            nodeId: this.id,
-            value,
-            signature: sign(
-                this.id,
-                value,
-                this.secret
-            )
+            id: this.id, publicKey: this.publicKey, keyVersion: this.keyVersion
         };
     }
 
-    verifyVote(vote, secretLookup) {
+    vote(value, roundId = 1) {
+        const vote = {
+            nodeId: this.id, value, roundId, keyVersion: this.keyVersion
+        };
+        return { ...vote, signature: signVote(vote, this.secret) };
+    }
 
-        return verify(
-            vote.nodeId,
-            vote.value,
-            secretLookup(vote.nodeId),
-            vote.signature
-        );
+    verifyVote(vote, publicKeyLookup) {
+        return verifyVote(vote, publicKeyLookup(vote.nodeId));
     }
 }
 

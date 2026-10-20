@@ -1,101 +1,31 @@
+const Node = require("./node");
 const { sign } = require("./crypto");
 
-/*
- * Honest behaviour
- */
 function resetNode(node) {
-
-    node.vote = function(value) {
-
-        return {
-            nodeId: this.id,
-            value,
-            signature: sign(
-                this.id,
-                value,
-                this.secret
-            )
-        };
-    };
+    node.vote = Node.prototype.vote;
 }
 
-/*
- * Byzantine node:
- * always votes for maliciousValue
- */
 function makeByzantine(node, maliciousValue) {
-
-    node.vote = function(_) {
-
-        return {
-            nodeId: this.id,
-            value: maliciousValue,
-            signature: sign(
-                this.id,
-                maliciousValue,
-                this.secret
-            )
-        };
+    node.vote = function (_, roundId = 1) {
+        return Node.prototype.vote.call(this, maliciousValue, roundId);
     };
 }
 
-/*
- * Equivocation:
- * sends different values to different peers
- */
 function makeEquivocator(node, valuesPerPeer) {
-
-    node.voteForPeer = function(peerId) {
-
-        const value =
-            valuesPerPeer[peerId];
-
-        return {
-            nodeId: this.id,
-            value,
-            signature: sign(
-                this.id,
-                value,
-                this.secret
-            )
-        };
+    node.voteForPeer = function (peerId, roundId = 1) {
+        return Node.prototype.vote.call(this, valuesPerPeer[peerId], roundId);
     };
 }
 
-/*
- * Key theft.
- * Returns stolen secret.
- */
 function stealKey(node) {
-
     return node.secret;
 }
 
-/*
- * Create forged vote.
- */
-function forgeVote(
-    victimNodeId,
-    stolenSecret,
-    value
-) {
-
+function forgeVote(victimNodeId, stolenSecret, value, roundId = 1, keyVersion = 1) {
     return {
-        nodeId: victimNodeId,
-        value,
-        signature: sign(
-            victimNodeId,
-            value,
-            stolenSecret
-        )
+        nodeId: victimNodeId, value, roundId, keyVersion,
+        signature: sign(victimNodeId, value, stolenSecret, roundId, keyVersion)
     };
 }
 
-module.exports = {
-
-    resetNode,
-    makeByzantine,
-    makeEquivocator,
-    stealKey,
-    forgeVote
-};
+module.exports = { resetNode, makeByzantine, makeEquivocator, stealKey, forgeVote };

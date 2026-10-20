@@ -1,0 +1,19 @@
+
+Task 8.4: Protect quorum rules
+Unprotected reference: both 100 and 50 have two votes and meet a quorum of 2.
+BLOCKED: Unsafe quorum size: 2; expected 3 to 4
+
+Round 1; proposal 100; required quorum 3
+A voted 100
+B voted 100
+C voted 50
+D voted 50
+NO CONSENSUS
+
+Round 1; proposal 100; required quorum 3
+A voted 100
+B voted 100
+C voted 100
+D voted 100
+COMMITTED: 100
+COMMIT CERTIFICATE: signed by A, B, C, D

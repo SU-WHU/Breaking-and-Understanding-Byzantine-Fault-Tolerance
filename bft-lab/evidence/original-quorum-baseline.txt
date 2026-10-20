@@ -1,0 +1,26 @@
+
+====================
+Proposal: 100
+====================
+A voted 100
+B voted 100
+C voted 50
+D voted 50
+
+Vote Tally
+┌─────────┬────────┐
+│ (index) │ Values │
+├─────────┼────────┤
+│ 50      │ 2      │
+│ 100     │ 2      │
+└─────────┴────────┘
+Required Quorum = 2
+
+SAFETY VIOLATION!
+Multiple values reached quorum:
+┌─────────┬───────┬───────┐
+│ (index) │ value │ votes │
+├─────────┼───────┼───────┤
+│ 0       │ '50'  │ 2     │
+│ 1       │ '100' │ 2     │
+└─────────┴───────┴───────┘

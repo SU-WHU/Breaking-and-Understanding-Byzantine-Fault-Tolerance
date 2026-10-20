@@ -1,0 +1,29 @@
+{
+  "quorum": 3,
+  "validators": [
+    {
+      "id": "A",
+      "publicKey": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAMF9OU8NB8zO0cRJZ6CS07GK4jW4Odpf4BUtS4IxTPWg=\n-----END PUBLIC KEY-----\n",
+      "keyVersion": 1,
+      "revoked": false
+    },
+    {
+      "id": "B",
+      "publicKey": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEA6vp+NAPDddMS4DC9hfIYUbSMpbBcNnLo07jmFnswmnU=\n-----END PUBLIC KEY-----\n",
+      "keyVersion": 1,
+      "revoked": false
+    },
+    {
+      "id": "C",
+      "publicKey": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAGDrQVtYUBzL3urrIPQTZ1MApkH//S4ZLC2vjDd1snr0=\n-----END PUBLIC KEY-----\n",
+      "keyVersion": 1,
+      "revoked": false
+    },
+    {
+      "id": "D",
+      "publicKey": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEA3593oZ39iAfHzwhpAUtaXoHTJcvMw2KZFunlDBWSenM=\n-----END PUBLIC KEY-----\n",
+      "keyVersion": 1,
+      "revoked": false
+    }
+  ]
+}

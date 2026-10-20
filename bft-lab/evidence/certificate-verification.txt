@@ -1,0 +1,8 @@
+{
+  "valid": true,
+  "signers": [
+    "A",
+    "B",
+    "C"
+  ]
+}
